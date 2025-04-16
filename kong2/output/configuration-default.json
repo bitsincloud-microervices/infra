@@ -1,0 +1,700 @@
+{
+  "vitals_strategy": "database",
+  "pg_user": "kong",
+  "debug_listeners": {},
+  "cluster_listeners": [
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8005",
+      "port": 8005,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": false,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    }
+  ],
+  "konnect_mode": false,
+  "upstream_keepalive_idle_timeout": 60,
+  "upstream_keepalive_max_requests": 100,
+  "cluster_telemetry_listeners": [
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8006",
+      "port": 8006,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": false,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    }
+  ],
+  "declarative_config_encryption_mode": "off",
+  "pg_ro_iam_auth": false,
+  "portal_reset_email": true,
+  "portal_cors_origins": {},
+  "keyring_strategy": "cluster",
+  "cluster_telemetry_listen": [
+    "0.0.0.0:8006"
+  ],
+  "portal_gui_host": "127.0.0.1:8003",
+  "portal_gui_protocol": "http",
+  "portal_gui_use_subdomains": false,
+  "cassandra_keyspace": "kong",
+  "nginx_sproxy_directives": {},
+  "portal_api_listen": [
+    "0.0.0.0:8004",
+    "0.0.0.0:8447 ssl"
+  ],
+  "cassandra_username": "kong",
+  "admin_gui_ssl_enabled": true,
+  "admin_gui_listen": [
+    "0.0.0.0:8002",
+    "0.0.0.0:8445 ssl"
+  ],
+  "nginx_err_logs": "/usr/local/kong/logs/error.log",
+  "nginx_acc_logs": "/usr/local/kong/logs/access.log",
+  "admin_acc_logs": "/usr/local/kong/logs/admin_access.log",
+  "nginx_conf": "/usr/local/kong/nginx.conf",
+  "nginx_kong_gui_include_conf": "/usr/local/kong/nginx-kong-gui-include.conf",
+  "nginx_kong_conf": "/usr/local/kong/nginx-kong.conf",
+  "kic": false,
+  "nginx_kong_stream_conf": "/usr/local/kong/nginx-kong-stream.conf",
+  "kong_env": "/usr/local/kong/.kong_env",
+  "kong_process_secrets": "/usr/local/kong/.kong_process_secrets",
+  "ssl_cert_csr_default": "/usr/local/kong/ssl/kong-default.csr",
+  "ssl_cert_default": "/usr/local/kong/ssl/kong-default.crt",
+  "ssl_cert_key_default": "/usr/local/kong/ssl/kong-default.key",
+  "ssl_cert_default_ecdsa": "/usr/local/kong/ssl/kong-default-ecdsa.crt",
+  "enabled_headers": {
+    "Via": true,
+    "X-Kong-Response-Latency": true,
+    "X-Kong-Admin-Latency": true,
+    "server_tokens": true,
+    "latency_tokens": true,
+    "X-Kong-Upstream-Status": false,
+    "Server": true,
+    "X-Kong-Upstream-Latency": true,
+    "X-Kong-Proxy-Latency": true
+  },
+  "ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/kong-default-ecdsa.key",
+  "client_ssl_cert_default": "/usr/local/kong/ssl/kong-default.crt",
+  "client_ssl_cert_key_default": "/usr/local/kong/ssl/kong-default.key",
+  "admin_ssl_cert_default": "/usr/local/kong/ssl/admin-kong-default.crt",
+  "nginx_main_directives": [
+    {
+      "name": "daemon",
+      "value": "off"
+    },
+    {
+      "name": "user",
+      "value": "kong kong"
+    },
+    {
+      "name": "worker_processes",
+      "value": "auto"
+    },
+    {
+      "name": "worker_rlimit_nofile",
+      "value": "auto"
+    }
+  ],
+  "nginx_events_directives": [
+    {
+      "name": "multi_accept",
+      "value": "on"
+    },
+    {
+      "name": "worker_connections",
+      "value": "auto"
+    }
+  ],
+  "lua_package_path": "./?.lua;./?/init.lua;",
+  "admin_ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/admin-kong-default-ecdsa.key",
+  "client_ssl": false,
+  "status_ssl_cert_default": "/usr/local/kong/ssl/status-kong-default.crt",
+  "status_ssl_cert_key_default": "/usr/local/kong/ssl/status-kong-default.key",
+  "nginx_upstream_directives": {},
+  "status_ssl_cert_default_ecdsa": "/usr/local/kong/ssl/status-kong-default-ecdsa.crt",
+  "nginx_proxy_directives": [
+    {
+      "name": "real_ip_header",
+      "value": "X-Real-IP"
+    },
+    {
+      "name": "real_ip_recursive",
+      "value": "off"
+    }
+  ],
+  "status_ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/status-kong-default-ecdsa.key",
+  "nginx_status_directives": {},
+  "nginx_debug_directives": {},
+  "port_maps": {},
+  "proxy_listen": [
+    "0.0.0.0:8000"
+  ],
+  "nginx_stream_directives": [
+    {
+      "name": "lua_shared_dict",
+      "value": "stream_prometheus_metrics 5m"
+    },
+    {
+      "name": "lua_ssl_protocols",
+      "value": "TLSv1.1 TLSv1.2 TLSv1.3"
+    },
+    {
+      "name": "ssl_prefer_server_ciphers",
+      "value": "off"
+    },
+    {
+      "name": "ssl_protocols",
+      "value": "TLSv1.2 TLSv1.3"
+    },
+    {
+      "name": "ssl_session_tickets",
+      "value": "on"
+    },
+    {
+      "name": "ssl_session_timeout",
+      "value": "1d"
+    }
+  ],
+  "status_listen": [
+    "off"
+  ],
+  "debug_listen": [
+    "off"
+  ],
+  "stream_listen": [
+    "off"
+  ],
+  "cluster_listen": [
+    "0.0.0.0:8005"
+  ],
+  "admin_ssl_cert": {},
+  "admin_ssl_cert_key": {},
+  "status_ssl_cert": {},
+  "status_ssl_cert_key": {},
+  "debug_ssl_cert": {},
+  "debug_ssl_cert_key": {},
+  "db_resurrect_ttl": 30,
+  "nginx_user": "kong kong",
+  "nginx_main_user": "kong kong",
+  "nginx_daemon": "off",
+  "nginx_main_daemon": "off",
+  "nginx_worker_processes": "auto",
+  "nginx_main_worker_processes": "auto",
+  "trusted_ips": {},
+  "real_ip_header": "X-Real-IP",
+  "nginx_proxy_real_ip_header": "X-Real-IP",
+  "portal": false,
+  "nginx_proxy_real_ip_recursive": "off",
+  "rbac": "off",
+  "enforce_rbac": "off",
+  "pg_password": "******",
+  "pg_ssl": false,
+  "pg_ssl_required": false,
+  "pg_ssl_verify": false,
+  "pg_ssl_version": "tlsv1_2",
+  "lua_max_uri_args": 100,
+  "mem_cache_size": "128m",
+  "pg_max_concurrent_queries": 0,
+  "tracing_write_strategy": "file",
+  "_debug_pg_ttl_cleanup_interval": 300,
+  "pg_ro_ssl": false,
+  "pg_ro_ssl_required": false,
+  "pg_ro_ssl_verify": false,
+  "dns_resolver": {},
+  "dns_hostsfile": "/etc/hosts",
+  "cassandra_contact_points": [
+    "127.0.0.1"
+  ],
+  "cassandra_port": 9042,
+  "cassandra_ssl": false,
+  "portal_gui_error_log": "logs/portal_gui_error.log",
+  "dns_error_ttl": 1,
+  "ssl_cert": {},
+  "dns_not_found_ttl": 30,
+  "dns_stale_ttl": 4,
+  "dns_cache_size": 10000,
+  "dns_order": [
+    "LAST",
+    "SRV",
+    "A",
+    "CNAME"
+  ],
+  "cassandra_read_consistency": "ONE",
+  "cassandra_lb_policy": "RequestRoundRobin",
+  "cassandra_refresh_frequency": 60,
+  "cassandra_repl_strategy": "SimpleStrategy",
+  "cassandra_repl_factor": 1,
+  "cassandra_data_centers": [
+    "dc1:2",
+    "dc2:3"
+  ],
+  "cassandra_schema_consensus_timeout": 10000,
+  "portal_access_request_email": true,
+  "portal_is_legacy": false,
+  "ssl_protocols": "TLSv1.1 TLSv1.2 TLSv1.3",
+  "portal_invite_email": true,
+  "nginx_http_ssl_protocols": "TLSv1.2 TLSv1.3",
+  "nginx_stream_ssl_protocols": "TLSv1.2 TLSv1.3",
+  "ssl_prefer_server_ciphers": "on",
+  "portal_auto_approve": false,
+  "nginx_stream_ssl_prefer_server_ciphers": "off",
+  "ssl_dhparam": "ffdhe2048",
+  "nginx_http_ssl_dhparam": "ffdhe2048",
+  "nginx_stream_ssl_dhparam": "ffdhe2048",
+  "ssl_session_tickets": "on",
+  "nginx_http_ssl_session_tickets": "on",
+  "nginx_stream_ssl_session_tickets": "on",
+  "ssl_session_timeout": "1d",
+  "portal_smtp_admin_emails": {},
+  "nginx_stream_ssl_session_timeout": "1d",
+  "ssl_session_cache_size": "10m",
+  "proxy_access_log": "/dev/stdout",
+  "proxy_error_log": "/dev/stderr",
+  "proxy_stream_access_log": "logs/access.log basic",
+  "portal_reset_success_email": true,
+  "admin_access_log": "/dev/stdout",
+  "smtp_timeout_send": 60000,
+  "status_access_log": "off",
+  "status_error_log": "logs/status_error.log",
+  "debug_access_log": "off",
+  "debug_error_log": "logs/debug_error.log",
+  "lua_ssl_trusted_certificate": [
+    "/etc/ssl/certs/ca-certificates.crt"
+  ],
+  "lua_ssl_verify_depth": 1,
+  "lua_ssl_protocols": "TLSv1.1 TLSv1.2 TLSv1.3",
+  "nginx_http_lua_ssl_protocols": "TLSv1.1 TLSv1.2 TLSv1.3",
+  "nginx_stream_lua_ssl_protocols": "TLSv1.1 TLSv1.2 TLSv1.3",
+  "smtp_starttls": false,
+  "smtp_port": 25,
+  "smtp_host": "localhost",
+  "cluster_mtls": "shared",
+  "cluster_data_plane_purge_delay": 1209600,
+  "cluster_ocsp": "off",
+  "cluster_allowed_common_names": {},
+  "cluster_max_payload": 4194304,
+  "cluster_use_proxy": false,
+  "cluster_dp_labels": {},
+  "pluginserver_names": {},
+  "untrusted_lua": "sandbox",
+  "untrusted_lua_sandbox_requires": {},
+  "untrusted_lua_sandbox_environment": {},
+  "allow_inconsistent_data_plane_plugins": false,
+  "lmdb_environment_path": "dbless.lmdb",
+  "lmdb_map_size": "128m",
+  "opentelemetry_tracing": [
+    "off"
+  ],
+  "opentelemetry_tracing_sampling_rate": 0.01,
+  "proxy_server_ssl_verify": true,
+  "cluster_fallback_config_export": false,
+  "cluster_fallback_config_export_delay": 60,
+  "cluster_fallback_config_import": false,
+  "nginx_main_worker_rlimit_nofile": "auto",
+  "nginx_events_worker_connections": "auto",
+  "tracing_sampling_rate": 0.01,
+  "worker_consistency": "eventual",
+  "ssl_cipher_suite": "intermediate",
+  "ssl_ciphers": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
+  "lua_package_cpath": "",
+  "db_update_frequency": 5,
+  "db_update_propagation": 0,
+  "db_cache_ttl": 0,
+  "stream_proxy_ssl_enabled": false,
+  "admin_ssl_enabled": false,
+  "status_ssl_enabled": false,
+  "debug_ssl_enabled": false,
+  "host_ports": {},
+  "lua_ssl_trusted_certificate_combined": "/usr/local/kong/.ca_combined",
+  "cassandra_timeout": 5000,
+  "pg_timeout": 5000,
+  "worker_state_update_frequency": 5,
+  "cluster_telemetry_endpoint": "127.0.0.1:8006",
+  "keyring_vault_kube_api_token_file": "/run/secrets/kubernetes.io/serviceaccount/token",
+  "keyring_vault_kube_role": "default",
+  "keyring_vault_auth_method": "token",
+  "pg_database": "kong",
+  "tracing_instrumentations": [
+    "off"
+  ],
+  "smtp_timeout_connect": 60000,
+  "portal_email_verification": false,
+  "portal_auth_login_attempts": 0,
+  "cluster_control_plane": "127.0.0.1:8005",
+  "portal_api_ssl_cert_key": {},
+  "portal_api_ssl_cert": {},
+  "portal_api_error_log": "logs/portal_api_error.log",
+  "portal_api_access_log": "logs/portal_api_access.log",
+  "role": "traditional",
+  "portal_gui_ssl_cert": {},
+  "admin_gui_ssl_cert_key": [
+    "/usr/local/kong/ssl/admin-gui-kong-default.key",
+    "/usr/local/kong/ssl/admin-gui-kong-default-ecdsa.key"
+  ],
+  "database": "postgres",
+  "admin_invitation_expiry": 259200,
+  "admin_gui_ssl_cert": [
+    "/usr/local/kong/ssl/admin-gui-kong-default.crt",
+    "/usr/local/kong/ssl/admin-gui-kong-default-ecdsa.crt"
+  ],
+  "admin_emails_from": "\"\"",
+  "audit_log": false,
+  "admin_gui_flags": "{}",
+  "admin_gui_access_log": "logs/admin_gui_access.log",
+  "admin_gui_error_log": "logs/admin_gui_error.log",
+  "admin_ssl_cert_key_default": "/usr/local/kong/ssl/admin-kong-default.key",
+  "audit_log_payload_exclude": [
+    "token",
+    "secret",
+    "password"
+  ],
+  "prefix": "/usr/local/kong",
+  "audit_log_ignore_tables": {},
+  "audit_log_ignore_paths": {},
+  "audit_log_ignore_methods": {},
+  "analytics_buffer_size_limit": 100000,
+  "analytics_flush_interval": 1,
+  "admin_gui_listeners": [
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8002",
+      "port": 8002,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": false,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    },
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8445 ssl",
+      "port": 8445,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": true,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    }
+  ],
+  "admin_ssl_cert_default_ecdsa": "/usr/local/kong/ssl/admin-kong-default-ecdsa.crt",
+  "vitals_statsd_prefix": "kong",
+  "rbac_auth_header": "Kong-Admin-Token",
+  "lmdb_encryption_key": "/usr/local/kong/.lmdb_encryption_key",
+  "nginx_http_ssl_prefer_server_ciphers": "off",
+  "portal_api_ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/portal-api-kong-default-ecdsa.key",
+  "vitals_delete_interval_pg": 30,
+  "portal_api_ssl_cert_default_ecdsa": "/usr/local/kong/ssl/portal-api-kong-default-ecdsa.crt",
+  "pg_semaphore_timeout": 60000,
+  "portal_gui_ssl_cert_key_default": "/usr/local/kong/ssl/portal-gui-kong-default.key",
+  "vitals_statsd_udp_packet_size": 1024,
+  "portal_gui_ssl_cert_default": "/usr/local/kong/ssl/portal-gui-kong-default.crt",
+  "route_validation_strategy": "smart",
+  "portal_gui_ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/portal-gui-kong-default-ecdsa.key",
+  "db_cache_warmup_entities": [
+    "services"
+  ],
+  "portal_gui_ssl_cert_default_ecdsa": "/usr/local/kong/ssl/portal-gui-kong-default-ecdsa.crt",
+  "nginx_http_lua_regex_match_limit": "100000",
+  "portal_api_ssl_cert_key_default": "/usr/local/kong/ssl/portal-api-kong-default.key",
+  "portal_gui_access_log": "logs/portal_gui_access.log",
+  "headers": [
+    "server_tokens",
+    "latency_tokens"
+  ],
+  "portal_api_ssl_cert_default": "/usr/local/kong/ssl/portal-api-kong-default.crt",
+  "admin_gui_ssl_cert_key_default_ecdsa": "/usr/local/kong/ssl/admin-gui-kong-default-ecdsa.key",
+  "keyring_enabled": false,
+  "admin_gui_ssl_cert_default_ecdsa": "/usr/local/kong/ssl/admin-gui-kong-default-ecdsa.crt",
+  "smtp_timeout_read": 60000,
+  "admin_gui_ssl_cert_key_default": "/usr/local/kong/ssl/admin-gui-kong-default.key",
+  "anonymous_reports": true,
+  "admin_gui_ssl_cert_default": "/usr/local/kong/ssl/admin-gui-kong-default.crt",
+  "pg_port": 5432,
+  "nginx_portal_gui_err_logs": "/usr/local/kong/logs/portal_gui_error.log",
+  "event_hooks_enabled": false,
+  "nginx_portal_gui_acc_logs": "/usr/local/kong/logs/portal_gui_access.log",
+  "vitals": false,
+  "ssl_cert_key": {},
+  "lua_max_resp_headers": 100,
+  "nginx_portal_api_acc_logs": "/usr/local/kong/logs/portal_api_access.log",
+  "pg_iam_auth": false,
+  "admin_gui_auth_login_attempts": 0,
+  "admin_gui_path": "/",
+  "router_flavor": "traditional_compatible",
+  "lua_max_post_args": 100,
+  "nginx_pid": "/usr/local/kong/pids/nginx.pid",
+  "admin_approved_email": "true",
+  "nginx_http_directives": [
+    {
+      "name": "charset",
+      "value": "UTF-8"
+    },
+    {
+      "name": "client_body_buffer_size",
+      "value": "8k"
+    },
+    {
+      "name": "client_max_body_size",
+      "value": "0"
+    },
+    {
+      "name": "lua_regex_cache_max_entries",
+      "value": "8192"
+    },
+    {
+      "name": "lua_regex_match_limit",
+      "value": "100000"
+    },
+    {
+      "name": "lua_shared_dict",
+      "value": "prometheus_metrics 5m"
+    },
+    {
+      "name": "lua_ssl_protocols",
+      "value": "TLSv1.1 TLSv1.2 TLSv1.3"
+    },
+    {
+      "name": "ssl_prefer_server_ciphers",
+      "value": "off"
+    },
+    {
+      "name": "ssl_protocols",
+      "value": "TLSv1.2 TLSv1.3"
+    },
+    {
+      "name": "ssl_session_tickets",
+      "value": "on"
+    },
+    {
+      "name": "ssl_session_timeout",
+      "value": "1d"
+    }
+  ],
+  "error_default_type": "text/plain",
+  "dns_no_sync": false,
+  "cassandra_write_consistency": "ONE",
+  "nginx_http_lua_regex_cache_max_entries": "8192",
+  "real_ip_recursive": "off",
+  "allow_debug_header": false,
+  "nginx_http_ssl_session_timeout": "1d",
+  "audit_log_record_ttl": 2592000,
+  "tracing_types": {
+    "1": "all",
+    "all": true
+  },
+  "vaults": [
+    "bundled"
+  ],
+  "portal_token_exp": 21600,
+  "cassandra_ssl_verify": false,
+  "vitals_ttl_days": 0,
+  "smtp_mock": true,
+  "tracing": false,
+  "admin_error_log": "/dev/stderr",
+  "proxy_ssl_enabled": false,
+  "portal_approved_email": true,
+  "nginx_events_multi_accept": "on",
+  "smtp_ssl": false,
+  "nginx_http_charset": "UTF-8",
+  "lua_socket_pool_size": 30,
+  "loaded_vaults": {
+    "env": true,
+    "aws": true,
+    "gcp": true,
+    "hcv": true
+  },
+  "nginx_http_client_max_body_size": "0",
+  "loaded_plugins": {
+    "datadog": true,
+    "application-registration": true,
+    "oauth2-introspection": true,
+    "proxy-cache-advanced": true,
+    "openid-connect": true,
+    "forward-proxy": true,
+    "canary": true,
+    "request-transformer-advanced": true,
+    "response-transformer-advanced": true,
+    "rate-limiting-advanced": true,
+    "ldap-auth-advanced": true,
+    "statsd-advanced": true,
+    "route-by-header": true,
+    "jwt-signer": true,
+    "vault-auth": true,
+    "request-validator": true,
+    "mtls-auth": true,
+    "graphql-proxy-cache-advanced": true,
+    "graphql-rate-limiting-advanced": true,
+    "degraphql": true,
+    "route-transformer-advanced": true,
+    "kafka-log": true,
+    "kafka-upstream": true,
+    "exit-transformer": true,
+    "key-auth-enc": true,
+    "upstream-timeout": true,
+    "mocking": true,
+    "opa": true,
+    "jq": true,
+    "websocket-size-limit": true,
+    "websocket-validator": true,
+    "konnect-application-auth": true,
+    "tls-handshake-modifier": true,
+    "tls-metadata-headers": true,
+    "saml": true,
+    "xml-threat-protection": true,
+    "jwe-decrypt": true,
+    "oas-validation": true,
+    "jwt": true,
+    "acl": true,
+    "correlation-id": true,
+    "cors": true,
+    "oauth2": true,
+    "tcp-log": true,
+    "udp-log": true,
+    "file-log": true,
+    "http-log": true,
+    "key-auth": true,
+    "hmac-auth": true,
+    "basic-auth": true,
+    "ip-restriction": true,
+    "request-transformer": true,
+    "response-transformer": true,
+    "request-size-limiting": true,
+    "rate-limiting": true,
+    "response-ratelimiting": true,
+    "syslog": true,
+    "loggly": true,
+    "ldap-auth": true,
+    "statsd": true,
+    "bot-detection": true,
+    "aws-lambda": true,
+    "request-termination": true,
+    "prometheus": true,
+    "proxy-cache": true,
+    "session": true,
+    "acme": true,
+    "grpc-gateway": true,
+    "grpc-web": true,
+    "pre-function": true,
+    "post-function": true,
+    "azure-functions": true,
+    "zipkin": true,
+    "opentelemetry": true
+  },
+  "nginx_http_client_body_buffer_size": "8k",
+  "generate_trace_details": false,
+  "tracing_time_threshold": 0,
+  "proxy_listeners": [
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8000",
+      "port": 8000,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": false,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    }
+  ],
+  "admin_listeners": [
+    {
+      "so_keepalive=on": false,
+      "so_keepalive=off": false,
+      "bind": false,
+      "listener": "0.0.0.0:8001",
+      "port": 8001,
+      "so_keepalive=%w*:%w*:%d*": false,
+      "ip": "0.0.0.0",
+      "ssl": false,
+      "http2": false,
+      "proxy_protocol": false,
+      "deferred": false,
+      "reuseport": false,
+      "backlog=%d+": false,
+      "ipv6only=on": false,
+      "ipv6only=off": false
+    }
+  ],
+  "status_listeners": {},
+  "portal_app_auth": "kong-oauth2",
+  "portal_application_status_email": false,
+  "smtp_domain": "localhost.localdomain",
+  "portal_gui_listen": [
+    "0.0.0.0:8003",
+    "0.0.0.0:8446 ssl"
+  ],
+  "lua_max_req_headers": 100,
+  "nginx_admin_directives": [
+    {
+      "name": "client_body_buffer_size",
+      "value": "10m"
+    },
+    {
+      "name": "client_max_body_size",
+      "value": "10m"
+    }
+  ],
+  "nginx_portal_api_err_logs": "/usr/local/kong/logs/portal_api_error.log",
+  "plugins": [
+    "bundled"
+  ],
+  "portal_application_request_email": false,
+  "nginx_admin_client_max_body_size": "10m",
+  "log_level": "notice",
+  "nginx_admin_client_body_buffer_size": "10m",
+  "fips": false,
+  "vitals_prometheus_scrape_interval": 5,
+  "admin_gui_auth_header": "******",
+  "vitals_flush_interval": 10,
+  "nginx_supstream_directives": {},
+  "client_body_buffer_size": "8k",
+  "admin_listen": [
+    "0.0.0.0:8001"
+  ],
+  "vitals_ttl_seconds": 3600,
+  "smtp_admin_emails": {},
+  "vitals_ttl_minutes": 1500,
+  "pg_host": "kong-database",
+  "stream_listeners": {},
+  "proxy_stream_error_log": "logs/error.log",
+  "portal_gui_ssl_cert_key": {},
+  "upstream_keepalive_pool_size": 60
+}

@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  ms-postgres:
+    image: postgres:16.3-alpine
+    container_name: ms-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: Postgres2025!
+      POSTGRES_USER: postgres
+      POSTGRES_DB: sonar
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - postgres-network
+
+  ms-pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ms-pgadmin
+    restart: always
+    depends_on:
+      - ms-postgres
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ms@localhos.co
+      PGADMIN_DEFAULT_PASSWORD: PgAdmin2025!
+    ports:
+      - 16543:80
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
+  pgadmin-data:

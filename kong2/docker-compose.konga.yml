@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  konga-db:
+    image: postgres:10
+    container_name: konga-db
+    restart: always
+    environment:
+      POSTGRES_DB: konga
+      POSTGRES_USER: konga
+      POSTGRES_PASSWORD: kongapass
+    ports:
+      - "5434:5432" # Porta diferente para não conflitar com seu kong-database
+    networks:
+      - kong-net
+
+  konga:
+    image: pantsel/konga
+    container_name: konga
+    restart: always
+    ports:
+      - "1337:1337"
+    environment:
+      - NODE_ENV=development
+      - DB_ADAPTER=postgres
+      - DB_HOST=konga-db
+      - DB_PORT=5432
+      - DB_USER=konga
+      - DB_PASSWORD=kongapass
+      - DB_DATABASE=konga
+      - KONGA_HOOK_TIMEOUT=120000
+    depends_on:
+      - konga-db
+    networks:
+      - kong-net
+
+networks:
+  kong-net:
+    #external: true
